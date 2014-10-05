@@ -8,7 +8,7 @@
  * launch the GUI.
  * 
  *@version 5.0
- * @author alejandrofigueroa
+ * @author AlejandroFigueroa
  * @author I worked on this project with Alexis, Collen, Derek, Jess, Mike, Morgan, Liam
  */
 public class Driver {
@@ -23,5 +23,4 @@ public class Driver {
         View v = new View();
         v.setVisible(true);
     }// end of main method
-    
 }// end of Driver class

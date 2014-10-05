@@ -9,22 +9,63 @@ import org.jfree.data.xy.XYSeriesCollection;
  */
 /**
  *
- * @author alejandrofigueroa
+ * @author AlejandroFigueroa
  */
 public class Save implements Serializable
 {
-    //View view = new View();
-     public double AgeSaved;
-     public double retAgeSaved;
-     public double preTBSaved;
-     public double postTBSaved;
-     public double preTCSaved;
-     public double postTCSaved;
-     public double RORSaved;
-     public double ITRSaved;
-     public double capGSaved;
+    /**
+     *
+     */
+    public double AgeSaved;
+
+    /**
+     *
+     */
+    public double retAgeSaved;
+
+    /**
+     *
+     */
+    public double preTBSaved;
+
+    /**
+     *
+     */
+    public double postTBSaved;
+
+    /**
+     *
+     */
+    public double preTCSaved;
+
+    /**
+     *
+     */
+    public double postTCSaved;
+
+    /**
+     *
+     */
+    public double RORSaved;
+
+    /**
+     *
+     */
+    public double ITRSaved;
+
+    /**
+     *
+     */
+    public double capGSaved;
      
-     public XYSeriesCollection createObject(XYSeries YEAR, XYSeries POST,XYSeries PRE)
+    /**
+     *
+     * @param YEAR
+     * @param POST
+     * @param PRE
+     * @return
+     */
+    public XYSeriesCollection createObject(XYSeries YEAR, XYSeries POST,XYSeries PRE)
      {
           XYSeriesCollection graphInfo = new XYSeriesCollection();
           

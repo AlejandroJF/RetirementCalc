@@ -5,7 +5,7 @@
  * methods used in the construction of the ArryList in the finalString method
  * from Retirement Class.
  * 
- * @author alejandrofigueroa
+ * @author AlejandroFigueroa
  */
 public class RetirementYears
 {
@@ -15,7 +15,7 @@ public class RetirementYears
     private final double Total;
                                     
     /**
-     *This is the constructor method, i takes in the parameters and creates
+     * This is the constructor method, it takes in the parameters and creates
      * instances of them to be used in the toString for creating the string
      * for the ArrayList
      * 
@@ -40,14 +40,15 @@ public class RetirementYears
      *@return result
      *@Override
      */
+    @Override
     public String toString()
     {
         String result = (year + "             " + preTB + "                  " + postTB + "                " + Total +  "\n");
-        return result;
+    return result;
     }// end of toString
 
     /**
-     *This method gets the location for Year from the toString method and returns
+     * This method gets the location for Year from the toString method and returns
      * it to the finalString Method in Retirement class when it is called for 
      * building the ArryList
      * 
@@ -58,7 +59,7 @@ public class RetirementYears
     }// end of getYear
 
     /**
-     *This method gets the location for preTB from the toString method and returns
+     * This method gets the location for preTB from the toString method and returns
      * it to the finalString Method in Retirement class when it is called for 
      * building the ArryList
      * 
@@ -69,7 +70,7 @@ public class RetirementYears
     }// end of getPreTB
 
     /**
-     *This method gets the location for postTB from the toString method and returns
+     * This method gets the location for postTB from the toString method and returns
      * it to the finalString Method in Retirement class when it is called for 
      * building the ArryList
      * 
@@ -80,7 +81,7 @@ public class RetirementYears
     }// end of etPostTB
 
     /**
-     *This method gets the location for Total from the toString method and returns
+     * This method gets the location for Total from the toString method and returns
      * it to the finalString Method in Retirement class when it is called for 
      * building the ArryList
      * 

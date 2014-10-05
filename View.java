@@ -23,11 +23,11 @@ import org.jfree.data.xy.XYSeriesCollection;
  */
 /**
  *
- * @author alejandrofigueroa
+ * @author AlejandroFigueroa
  */
 public class View extends javax.swing.JFrame implements Serializable {
 
-    private Retirment retirement = new Retirment();
+    private final Retirment retirement = new Retirment();
     Save savedFile = new Save();
 //    Exceptions exc = new Exceptions();
     
@@ -347,7 +347,21 @@ public class View extends javax.swing.JFrame implements Serializable {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
- public void savedInput(String fileName, double Age, double  retAge, double preTB, double postTB,double preTC,double postTC,double ROR,double ITR,double capG)//preTB, postTB, preTC, postTC, ROR, ITR, capG
+
+    /**
+     *
+     * @param fileName
+     * @param Age
+     * @param retAge
+     * @param preTB
+     * @param postTB
+     * @param preTC
+     * @param postTC
+     * @param ROR
+     * @param ITR
+     * @param capG
+     */
+    public void savedInput(String fileName, double Age, double  retAge, double preTB, double postTB,double preTC,double postTC,double ROR,double ITR,double capG)//preTB, postTB, preTC, postTC, ROR, ITR, capG
     {        
         try {
             
@@ -372,12 +386,14 @@ public class View extends javax.swing.JFrame implements Serializable {
                 e.printStackTrace();
             }
     }
+    
+    
     private void calculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateActionPerformed
         double bigBaller = 100000;
         double ageRange = 100;
         
-           try {
-              
+        try 
+        {  
             extraWindow.setText(null);
             Window.setText(null);
             POST.clear();
@@ -414,7 +430,6 @@ public class View extends javax.swing.JFrame implements Serializable {
 
                     
         retirement.finalString(Age, retAge, preTB, postTB, preTC, postTC, ROR, ITR, capG);
-save.setEnabled(false);
         printToScreen();
         graphData(Age, retAge, preTB, postTB, preTC, postTC, ROR, ITR, capG);
         graph();
@@ -465,6 +480,12 @@ save.setEnabled(false);
         YEAR.clear();
  
     }//GEN-LAST:event_clearActionPerformed
+
+    /**
+     *
+     * @param fileName
+     * @throws ClassNotFoundException
+     */
     public void load(String fileName) throws ClassNotFoundException
     {
         try
@@ -488,6 +509,7 @@ save.setEnabled(false);
         }
         catch(FileNotFoundException e){
             extraWindow.setText(" cannot find file try again");
+            Window.setText(null);
         }
         catch(IOException e){
             e.printStackTrace();
@@ -511,6 +533,19 @@ save.setEnabled(false);
         POST.clear();
         YEAR.clear();
     }//GEN-LAST:event_LoadButtonActionPerformed
+
+    /**
+     *
+     * @param loadedAge
+     * @param loadedretAge
+     * @param loadedpreTB
+     * @param loadedpostTB
+     * @param loadedpreTC
+     * @param loadedpostTC
+     * @param loadedROR
+     * @param loadedITR
+     * @param loadedcapG
+     */
     public void loadedContent(double loadedAge, double loadedretAge,double loadedpreTB,double loadedpostTB,double loadedpreTC,double loadedpostTC,double loadedROR,double loadedITR,double loadedcapG)
     {
         age.setText(String.valueOf(loadedAge));
@@ -575,23 +610,33 @@ save.setEnabled(false);
             savedInput(fileName, Age, retAge, preTB, postTB,preTC, postTC, ROR, ITR, capG);
         }
        }
-       catch(Exception e){
+       catch(NumberFormatException e){
+           Window.setEditable(false);
+           extraWindow.setText(null);
+           Window.setText("Your file was not saved peoperly, Please make sure\n"
+                   + "all fields are filled in appropriatly, I.E. \n"
+                   + "Only numbers, and periodsto represent decimals for\n"
+                   + "your percentages. No commas, letters\n"
+                   + "or symbols other that whats allowed.\n"
+                   + "please click Save buton to try again");
            
        }
     }                                                                       
 
     /**
-     * 
-     * 
+     * This Method Calls te 
      *
      */
     public void printToScreen()//(double retirmentAge)
     {
-        Window.setText("\nYear"+"    " + " Pre Tax Balance"+"     " + "Post Tax Balance"+"     " + "Total" + "\n"
+        Window.setText("\nYear"+"    " + " Pre Tax Balance" + "     " + "Post Tax Balance" + "     " + "Total" + "\n"
                 + "-------------------------------------------------------------------------------------------\n"
                 + retirement.toString());
     }
        
+    /**
+     *
+     */
     public void graph()
     {
         XYSeriesCollection graphInfo = new XYSeriesCollection();
@@ -619,9 +664,20 @@ save.setEnabled(false);
             
     }
     
+    /**
+     *
+     * @param Age
+     * @param retAge
+     * @param preTB
+     * @param postTB
+     * @param preTC
+     * @param postTC
+     * @param ROR
+     * @param ITR
+     * @param capG
+     */
     public void graphData(int Age, int retAge,double preTB, double postTB, double preTC, double postTC, double ROR, double ITR, double capG)
     {
-        double total = preTB + postTB;
         preTC = 12 * preTC;
         postTC = 12 * postTC;
         int startage = (int) Age;
@@ -634,7 +690,6 @@ save.setEnabled(false);
         {
           preTB = preTB * (1 + ROR) + preTC;
           postTB = postTB * (1 + ROR) + postTC;
-          total = preTB + postTB;
                  
           if(i == (retAge - 1))//switch back from ret age to end age
           {
@@ -642,7 +697,6 @@ save.setEnabled(false);
           }
           preTB = (long)Math.floor(preTB + 0.5d);
           postTB = (long)Math.floor(postTB + 0.5d);
-          total = (long)Math.floor(total + 0.5d);
           year = (int)i+Age;//Switch back from 
           
           PRE.add(year, preTB);

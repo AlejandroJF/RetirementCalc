@@ -1,12 +1,4 @@
-import java.awt.Color;
 import java.util.ArrayList;//Used to create the ArrayList retirementYearsArray
-import java.lang.Math;//Used in finalString to format paramters
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
 
 
 /**
@@ -15,7 +7,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * and they are passed to the finalString method where they are loaded into the 
  * Array List. This class also creates said ArrayList called retirementYearsArray
  * 
- * @author alejandrofigueroa
+ * @author AlejandroFigueroa
  */
 public class Retirment
 {
@@ -26,8 +18,10 @@ public class Retirment
      * to create its size and length using a for loop.
      *
      *
+     * @return 
      * @Override toString
     */
+   @Override
     public String toString()
     {
 	String result = "";
@@ -59,29 +53,39 @@ public class Retirment
      */
     public void finalString(int Age, int retAge,double preTB, double postTB, double preTC, double postTC, double ROR, double ITR, double capG)
     {
+        double Gain = 0;
+        double tax = 0;
+        double oneYear = 12;
+        double prevPostTB = postTB;
         double total = preTB + postTB;
-        preTC = 12 * preTC;
-        postTC = 12 * postTC;
-        int startage = (int) Age;
-        int endAge = (int) retAge;
-        Age = Age -1;
+        
+        preTC = (oneYear * preTC);
+        postTC = (oneYear * postTC);
+        ROR = (1 + ROR);
+        Age = (Age -1);
         
         retirementYearsArray = new ArrayList<RetirementYears>();
         retirementYearsArray.add(new RetirementYears(Age, preTB, postTB, total));
         for (int i = 1; i < (retAge - Age); i++) //change back from ret - age if errors
         {
-          preTB = retirementYearsArray.get(i-1).getPreTB() * (1 + ROR) + preTC;
-          postTB = retirementYearsArray.get(i-1).getPostTB() * (1 + ROR) + postTC;
-          total = preTB + postTB;
-                 
+          preTB = retirementYearsArray.get(i-1).getPreTB() * (ROR) + preTC;
+          postTB = retirementYearsArray.get(i-1).getPostTB() * (ROR);
+          Gain = postTB - prevPostTB;
+          tax = Gain * capG;
+          postTB = postTB - tax + postTC;
+
+          
+
           if(i == (retAge - 1))//switch back from ret age to end age
           {
             preTB = preTB - preTB * ITR;
           }
+          total = preTB + postTB;
           preTB = (long)Math.floor(preTB + 0.5d);
           postTB = (long)Math.floor(postTB + 0.5d);
           total = (long)Math.floor(total + 0.5d);
-          int year = (int)i+Age;//Switch back from 
+          int year = (int)i+Age;//Switch back from
+          prevPostTB = postTB;
           
           retirementYearsArray.add(new RetirementYears(year, preTB, postTB, total));
         }//end of for loop

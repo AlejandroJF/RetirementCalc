@@ -1,9 +1,9 @@
 
 /**
- *
+ * This is my exception Class, it has custom built exceptions for different 
+ * scenarios throughout the program. 
  * 
- * 
- * @author alejandrofigueroa
+ * @author AlejandroFigueroa
  */
 public class Exceptions extends Exception {
 
@@ -25,7 +25,8 @@ public class Exceptions extends Exception {
 }//end of Exceptions Class
 
 /**
- * 
+ * this Exception was built to handle the users input as a negative quantity
+ * for money. 
  * 
  */
 class negativeMoneyException extends Exceptions{
@@ -35,7 +36,8 @@ class negativeMoneyException extends Exceptions{
     }// end of negativeMoneyException
 
 /**
- * 
+ * This Exception was built to handle the users input avoiding
+ * negative years as a form of input
  * 
  */
 class negativeYearException extends Exceptions{
@@ -45,28 +47,51 @@ class negativeYearException extends Exceptions{
     }// end of negativeYearException
 
 /**
- * 
+ * This Exception was built to handle the users input of too high a Tax
+ * rate, it purpose is to avoid the user breaking the program and restricting 
+ * their input from 1 - 100%
  * 
  */
 class tooMuchTaxException extends Exceptions{
     public tooMuchTaxException(String x){
         super("");
     }
-    }// end of tooMuchTaxException
+    }// End of tooMuchTaxException
 
+/**
+ * This exception was built to handle the user input but restricting him
+ * to only enter letters and a ending in ".bin" for example
+ * 
+ */
 class fileNotFoundEception extends Exceptions{
     public fileNotFoundEception(String x){
         super("");
     }
-    }
-    class makingTooMuchMoneyException extends Exception{
+    }// End of fileNotFoundEception
+
+/**
+ * This Exception was built to handle the users input restricting
+ * the amount of money that can be contributed on a monthly bases.
+ * by doing so it avoid the monthly from growing beyond the 
+ * capability of doubles.
+ * 
+ */
+class makingTooMuchMoneyException extends Exception{
         public makingTooMuchMoneyException(String x){
             super("");
     }
-    }
+    }// End of makingTooMuchMoneyException
+
+/**
+ * This Exception was built to handle the users input restricting
+ * the amount of money that can be contributed on a monthly bases.
+ * by doing so it avoid the monthly from growing beyond the 
+ * capability of doubles.
+ * 
+ */
 class bigBallerException extends Exception{
     public bigBallerException(String x){
         super("");
     }
-    }
+    }// End of bigBallerException
 
