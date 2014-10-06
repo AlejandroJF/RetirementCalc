@@ -7,8 +7,8 @@
  * 
  * @author AlejandroFigueroa
  */
-public class RetirementYears
-{
+public class RetirementYears{
+    
     private final int year;
     private final double preTB;
     private final double postTB;
@@ -24,13 +24,13 @@ public class RetirementYears
      * @param postTB
      * @param Total
      */
-    public RetirementYears(int year, double preTB, double postTB, double Total)
-    {
+    public RetirementYears(int year, double preTB, double postTB, double Total){
+        
         this.year = year;
         this.preTB = preTB;
         this.postTB = postTB;
         this.Total = Total;
-    }// end of RetirementYears
+    }// End of RetirementYears Method
     
     /**
      * This Method creates my string and it creates the formatting of said string
@@ -41,11 +41,11 @@ public class RetirementYears
      *@Override
      */
     @Override
-    public String toString()
-    {
+    public String toString(){
+        
         String result = (year + "             " + preTB + "                  " + postTB + "                " + Total +  "\n");
-    return result;
-    }// end of toString
+        return result;
+    }// End of toString Method
 
     /**
      * This method gets the location for Year from the toString method and returns
@@ -56,7 +56,7 @@ public class RetirementYears
      */
     public double getYear() {
         return year;
-    }// end of getYear
+    }// End of getYear Method
 
     /**
      * This method gets the location for preTB from the toString method and returns
@@ -67,7 +67,7 @@ public class RetirementYears
      */
     public double getPreTB() {
         return preTB;
-    }// end of getPreTB
+    }// End of getPreTB Method
 
     /**
      * This method gets the location for postTB from the toString method and returns
@@ -78,7 +78,7 @@ public class RetirementYears
      */
     public double getPostTB() {
         return postTB;
-    }// end of etPostTB
+    }// End of getPostTB Method
 
     /**
      * This method gets the location for Total from the toString method and returns
@@ -89,5 +89,5 @@ public class RetirementYears
      */
     public double getTotal() {
         return Total;
-    }//getTotal    
-}// end of RetirementYears Class
+    }// End of getTotal Method
+}// End of RetirementYears Class

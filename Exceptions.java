@@ -9,9 +9,10 @@ public class Exceptions extends Exception {
 
     /**
      * Creates a new instance of <code>Exceptions</code> without detail message.
+     * 
      */
     public Exceptions() {
-    }
+    }// End of Exceptions Method 
 
     /**
      * Constructs an instance of <code>Exceptions</code> with the specified
@@ -21,8 +22,9 @@ public class Exceptions extends Exception {
      */
     public Exceptions(String wrong) {
         super("");
-    }// end of Exceptions Method 
-}//end of Exceptions Class
+    }// End of Exceptions Method 
+    
+}//End of Exceptions Class
 
 /**
  * this Exception was built to handle the users input as a negative quantity
@@ -32,8 +34,8 @@ public class Exceptions extends Exception {
 class negativeMoneyException extends Exceptions{
     public negativeMoneyException(String x){
         super("");
-    }
-    }// end of negativeMoneyException
+    }// End of negativeMoneyException Method
+    }// End of negativeMoneyException Class
 
 /**
  * This Exception was built to handle the users input avoiding
@@ -43,8 +45,8 @@ class negativeMoneyException extends Exceptions{
 class negativeYearException extends Exceptions{
     public negativeYearException(String x){
         super("");
-    }
-    }// end of negativeYearException
+    }// End of negativeYearException Method
+    }// End of negativeYearException Class
 
 /**
  * This Exception was built to handle the users input of too high a Tax
@@ -55,8 +57,8 @@ class negativeYearException extends Exceptions{
 class tooMuchTaxException extends Exceptions{
     public tooMuchTaxException(String x){
         super("");
-    }
-    }// End of tooMuchTaxException
+    }// End of tooMuchTaxException Method
+    }// End of tooMuchTaxException Class
 
 /**
  * This exception was built to handle the user input but restricting him
@@ -66,8 +68,8 @@ class tooMuchTaxException extends Exceptions{
 class fileNotFoundEception extends Exceptions{
     public fileNotFoundEception(String x){
         super("");
-    }
-    }// End of fileNotFoundEception
+    }// End of fileNotFoundEception Method
+    }// End of fileNotFoundEception Class
 
 /**
  * This Exception was built to handle the users input restricting
@@ -79,8 +81,8 @@ class fileNotFoundEception extends Exceptions{
 class makingTooMuchMoneyException extends Exception{
         public makingTooMuchMoneyException(String x){
             super("");
-    }
-    }// End of makingTooMuchMoneyException
+    }// End of makingTooMuchMoneyException Method
+    }// End of makingTooMuchMoneyException clss
 
 /**
  * This Exception was built to handle the users input restricting
@@ -92,6 +94,6 @@ class makingTooMuchMoneyException extends Exception{
 class bigBallerException extends Exception{
     public bigBallerException(String x){
         super("");
-    }
-    }// End of bigBallerException
+    }// End of bigBallerException Method
+    }// End of bigBallerException Class
 
